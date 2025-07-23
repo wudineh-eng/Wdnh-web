@@ -8,7 +8,7 @@ display:flex;
   justify-content: space-between;
   align-items: center;
 }
-contact-hours-wrapper{
+.contact-hours-wrapper{
   color: royalblue;
 }
 .address-wrapper{
