@@ -11,7 +11,7 @@ body{
 display:flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 50px;
+  padding: 10px 100px;
 }
 .contact-hours-wrapper{
 
@@ -24,7 +24,7 @@ display:flex;
   align-item: center;
 }
 .icon{
-  margine-right: 10px;
+  margine-right: 30px;
 }
 .icon i{
   font-size= 2em;
