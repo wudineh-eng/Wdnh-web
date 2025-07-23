@@ -24,7 +24,7 @@ display:flex;
   align-item: center;
 }
 .icon{
-  margine-right: 15px;
+  margine-right: 10px;
 }
 .icon i{
   font-size= 2em;
