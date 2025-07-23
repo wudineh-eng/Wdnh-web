@@ -1,3 +1,7 @@
+/* common styles*/
+body{
+  margin: 0px;
+}
 /* common navigation style */
 .navigation-wrapper{
   hight: 190px;
