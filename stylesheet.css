@@ -3,14 +3,14 @@
   margin: 20px;
   padding: 60px 100px;
   display: flex;
-  align-item: center;
+  align-items: center;
   justify-content: space-between;
   background-color: #11122b;
   color: #cbcbcb;
 }
 .left-column{
   display: flex;
-  align-item: center;
+  align-items: center;
   justify-content: space-between;
 }
 .left-column i{
