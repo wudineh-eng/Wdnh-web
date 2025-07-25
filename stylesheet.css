@@ -3,3 +3,7 @@
   display: flex;
   align-item: center;
 }
+.left-column{
+  display: flex;
+  align-item: center;
+}
