@@ -16,21 +16,20 @@ body {
   align-items: center;
   padding: 60px 100px;
 }
-.contact-hours-wrapper{
+.contact-hours-wrapper {
 
 }
-.address-wrapper i{
+.address-wrapper i {
   
 }
-.left-column{
+.left-column {
   display: flex;
   align: center;
-
 }
-.icon{
-  margin-right: 15px
+.icon {
+  margin-right: 15px;
 }
-.icon i{
+.icon i {
   font-size: 2em;
 }
 /* Menu links horizontal */
