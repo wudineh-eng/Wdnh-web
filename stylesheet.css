@@ -28,6 +28,10 @@ body {
 .icon i {
   font-size: 2em;
 }
+.left-column > .contact-hours-wrapper {
+  display: grid;
+  grid-templet-columns: 1fr;
+}
 /* Menu links horizontal */
 .menu {
   display: flex;
