@@ -19,8 +19,8 @@ body {
 .contact-hours-wrapper{
 
 }
-.address-wrapper{
-  
+.address-wrapper i{
+  margin-right: 8px;
 }
 .left-column{
   display: flex;
