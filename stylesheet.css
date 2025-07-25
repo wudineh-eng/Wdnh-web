@@ -23,7 +23,7 @@ body {
 }
 .left-column {
   display: flex;
-  align: center;
+  align-item: center;
 }
 .icon {
   margin-right: 15px;
