@@ -20,32 +20,11 @@ body {
 
 }
 .address-wrapper i{
-  margin-right: 8px;
+  
 }
 .left-column{
   display: flex;
-  align-item: center;
-}
-.contact {
-  display: flex;
-  align-items: center;
-  color: white;
-  font-size: 14px;
-}
-
-.contact i {
-  margin-right: 8px;
-}
-.icon i{
-  font-size= 2em;
-}
-
-/* Phone section styling */
-.contact {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  font-size: 14px;
+  align= center
 }
 
 /* Menu links horizontal */
