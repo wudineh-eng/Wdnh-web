@@ -20,6 +20,7 @@ body {
 .left-column{
   display: flex;
   align-item: center;
+  gap: 15px;
 }
 .contact-hours-wrapper { display: flex;
                         flex-diraction: column;
