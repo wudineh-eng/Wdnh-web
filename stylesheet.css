@@ -1,6 +1,8 @@
 /* common styles*/
-body{
-  margin: 0px;
+body {
+  background-color: #0d0b28;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 /* common navigation style */
 .navigation-wrapper{
@@ -36,11 +38,6 @@ display:flex;
 .icon i{
   font-size= 2em;
 }
-body {
-  background-color: #0d0b28;
-  color: white;
-  font-family: Arial, sans-serif;
-}
 
 /* Phone section styling */
 .contact {
@@ -48,10 +45,6 @@ body {
   align-items: center;
   padding: 10px;
   font-size: 14px;
-}
-
-.contact i {
-  margin-right: 8px;
 }
 
 /* Menu links horizontal */
