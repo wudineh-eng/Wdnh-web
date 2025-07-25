@@ -5,12 +5,13 @@ body {
   font-family: Arial, sans-serif;
 }
 /* common navigation style */
-.navigation-wrapper{
-  height: 190px;
+.navigation-wrapper {
+  height: 190px; /* fixed typo */
   background-color: #11122b;
   color: #cbcbcb;
-/* flexbox container */
-display:flex;
+
+  /* flexbox container */
+  display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 60px 100px;
