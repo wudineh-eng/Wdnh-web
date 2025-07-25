@@ -24,12 +24,15 @@ body {
 }
 .left-column{
   display: flex;
-  align: center
+  align: center;
+
 }
 .icon{
   margin-right: 15px
 }
-
+.icon i{
+  font-size: 2em;
+}
 /* Menu links horizontal */
 .menu {
   display: flex;
