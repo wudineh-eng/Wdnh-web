@@ -13,3 +13,6 @@
   align-item: center;
   justify-content: space-between;
 }
+.left-column i{
+  margin: 15px;
+}
