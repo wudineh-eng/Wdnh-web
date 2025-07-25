@@ -36,4 +36,38 @@ display:flex;
 .icon i{
   font-size= 2em;
 }
+body {
+  background-color: #0d0b28;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Phone section styling */
+.contact {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.contact i {
+  margin-right: 8px;
+}
+
+/* Menu links horizontal */
+.menu {
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+}
+
+.menu a {
+  color: purple;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
 
