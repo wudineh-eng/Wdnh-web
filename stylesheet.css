@@ -24,7 +24,10 @@ body {
 }
 .left-column{
   display: flex;
-  align= center
+  align: center
+}
+.icon{
+  margin-right: 15px
 }
 
 /* Menu links horizontal */
