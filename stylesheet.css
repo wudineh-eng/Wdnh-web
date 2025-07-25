@@ -8,4 +8,5 @@
 .left-column{
   display: flex;
   align-item: center;
+  justify-content: space-between;
 }
