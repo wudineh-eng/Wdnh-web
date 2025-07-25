@@ -17,6 +17,10 @@ body {
   align-items: center;
   padding: 60px 100px;
 }
+.left-column{
+  display: flex;
+  align-item: center;
+}
 .contact-hours-wrapper { display: flex;
                         flex-diraction: column;
                         line-height: 1.5;
