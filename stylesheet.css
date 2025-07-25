@@ -1,10 +1,12 @@
 .navigation-wrapper {
   height: 190px;
+  margin: 20px;
+  padding: 60px 100px;
   display: flex;
   align-item: center;
   justify-content: space-between;
   background-color: #11122b;
-  padding: 60px 100px;
+  
 }
 .left-column{
   display: flex;
