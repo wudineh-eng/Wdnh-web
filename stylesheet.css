@@ -3,8 +3,7 @@ body {
   background-color: #0d0b28;
   color: white;
   font-family: Arial, sans-serif;
-  display: flex;
-  align-item: center;
+  margin: 0;
 }
 /* common navigation style */
 .navigation-wrapper {
@@ -18,9 +17,14 @@ body {
   align-items: center;
   padding: 60px 100px;
 }
-.contact-hours-wrapper {
+.contact-hours-wrapper { display: flex;
+                        flex-diraction: column;
+                        line-height: 1.5;
 }
 .address-wrapper i {
+  display: flex;
+  flex-direction: column;
+  align-item: flex-end;
   
 
 }
@@ -29,6 +33,8 @@ body {
 }
 .icon i {
   font-size: 2em;
+  margin-right: 15px;
+  
 }
 .left-column > .contact-hours-wrapper {
   display: grid;
