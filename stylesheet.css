@@ -26,6 +26,16 @@ display:flex;
 .icon{
   margine-right: 30px;
 }
+.contact {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+}
+
+.contact i {
+  margin-right: 8px;
+}
 .icon i{
   font-size= 2em;
 }
