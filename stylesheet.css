@@ -6,7 +6,7 @@
   align-item: center;
   justify-content: space-between;
   background-color: #11122b;
-  
+  color: #cbcbcb;
 }
 .left-column{
   display: flex;
