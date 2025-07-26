@@ -9,7 +9,7 @@
   color: #cbcbcb;
 }
 .left-column{
-  display: flex-inline;
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
@@ -18,7 +18,8 @@
 }
 .menu {
   display: flex;
-  align-content: center}
+  align-content: center;
+}
 .menu a{
   color: purple;
   font-weight: bold;
