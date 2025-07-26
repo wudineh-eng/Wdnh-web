@@ -16,3 +16,6 @@
 .left-column i{
   margin: 15px;
 }
+.menu {
+  display: flex;
+  align-content: center}
