@@ -19,3 +19,10 @@
 .menu {
   display: flex;
   align-content: center}
+.menu a{
+  color: purple;
+  font-weight: bold;
+}
+,menu a:hover {
+  text-decoration: underline/
+    }
