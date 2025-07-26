@@ -1,23 +1,32 @@
 body{
   display: flex;
+  color: white;
+  font-family: Arial, sans-sarif;
+  margin: opx;
+}
 }
 .navigation-wrapper {
   height: 190px;
-  margin: 0px;
   padding: 60px 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #11122b;
   color: #cbcbcb;
+  padding: 60px 100px;
 }
 .left-column{
+}
+.contact-hours-wrapper{
+  display: flex;
+  
+.icon {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.left-column i{
-  margin: 15px;
+.icon i{
+  
 }
 .menu {
   display: flex;
