@@ -7,32 +7,28 @@
   background-color: #0d0b28;
 }
 
-.navigation-wrapper {
-
-}
-
-.left-column {
+.navigation-wrapper > .left-column {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
-.icon {
+.navigation-wrapper > .icon {
   margin-right: 15px;
 }
-.icon i{
+.navigation-wrapper > .icon i{
   font-size: 2em;
 }
 
-.contact-hours-wrapper {
+.navigation-wrapper > .contact-hours-wrapper {
   display: grid;
   grid-template-columns: 1fr;
   margin-left: 10px;
   grid-gap: 10px;
 }
-.contact-hours-wrapper>.hours{
+.navigation-wrapper > .contact-hours-wrapper>.hours{
   font-family: "ubuntu condensed",sans-serif;
 }
-.banner-image img {
+.navigation-wrapper > .banner-image img {
   width: 180px;
   height: auto;
   border-radius: 15px;
@@ -66,7 +62,7 @@
   align-items: center;
   box-shadow: 0 0 10px #222;
 }
-.address-wrapper {
+.navigation-wrapper > .address-wrapper {
   display: flex;
   align-items: center;
   gap: 5px;
