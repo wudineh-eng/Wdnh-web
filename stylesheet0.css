@@ -22,7 +22,10 @@ body {
   align-items: center;
   margin-bottom: 10px;
 }
-.icon{
+icon {
+  margin-right: 10px;
+}
+.icon i{
   font-size: 3em;
 }
 
