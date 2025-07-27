@@ -22,6 +22,9 @@ body {
   align-items: center;
   margin-bottom: 10px;
 }
+.icon{
+  font-size: 3em;
+}
 
 .contact-hours-wrapper {
   margin-left: 10px;
