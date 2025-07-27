@@ -1,4 +1,4 @@
-body {
+.body {
   display: flex;
   flex-direction: column;
   color: white;
@@ -35,7 +35,9 @@ icon {
   margin-left: 10px;
   grid-gap: 10px;
 }
-
+.contact-hours-wrapper>.hours{
+  font-family: "ubuntu condensed",sans-serif;
+}
 .address-wrapper {
   display: flex;
   align-items: center;
