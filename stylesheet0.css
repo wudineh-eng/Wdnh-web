@@ -27,53 +27,18 @@ body {
   margin-left: 10px;
 }
 
-.menu {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.menu a {
-  color: purple;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.menu a:hover {
-  text-decoration: underline;
-}
-
 .address-wrapper {
   display: flex;
   align-items: center;
   gap: 5px;
   margin-top: 10px;
 }
-
-h1 {
-  font-size: 1.4em;
-}
-
-p, li {
-  font-size: 1em;
-}
-
 /* Mobile responsiveness */
 @media (max-width: 600px) {
   .navigation-wrapper {
     flex-direction: column;
     align-items: flex-start;
   }
-
-  .menu {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .menu a {
-    padding: 5px 0;
-  }
-
   .left-column {
     flex-direction: column;
     align-items: flex-start;
