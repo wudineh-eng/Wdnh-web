@@ -3,7 +3,7 @@ body {
   flex-direction: column;
   color: white;
   font-family: Arial, sans-serif;
-  margin: 0px;
+  margin: 8px;
   background-color: #0d0b28;
 }
 
@@ -33,6 +33,7 @@ icon {
   display: grid;
   grid-template-columns: 1fr;
   margin-left: 10px;
+  grid-gap: 10px;
 }
 
 .address-wrapper {
