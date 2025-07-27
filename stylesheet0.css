@@ -28,13 +28,13 @@
 .navigation-wrapper >  .left-column > .contact-hours-wrapper>.hours{
   font-family: "ubuntu condensed",sans-serif;
 }
-.navigation-wrapper >   .banner-image img {
+.navigation-wrapper >  .link-wrapper > .banner-image img {
   width: 180px;
   height: auto;
   border-radius: 15px;
   box-shadow: 0 0 15px #00d9ff;
 }
-.menu {
+.link-wrapper{
   display: flex;
   align-items: center;
   gap: 15px;
