@@ -1,10 +1,11 @@
-body{
+body {
   display: flex;
   color: white;
-  font-family: Arial, sans-sarif;
-  margin: opx;
+  font-family: Arial, sans-serif;
+  margin: 0px;
+  background-color: #0d0b28;
 }
-}
+
 .navigation-wrapper {
   height: 190px;
   padding: 60px 100px;
@@ -13,31 +14,33 @@ body{
   justify-content: space-between;
   background-color: #11122b;
   color: #cbcbcb;
-  padding: 60px 100px;
 }
-.left-column{
-  
-}
-.contact-hours-wrapper{
 
-  
-.icon {
+.left-column {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
-.icon i{
-  
+
+.contact-hours-wrapper {
+  margin-left: 10px;
 }
+
 .menu {
   display: flex;
-  align-content: center;
-  justify-content: space-between;
+  gap: 15px;
 }
-.menu a{
+
+.menu a {
   color: purple;
   font-weight: bold;
 }
+
 .menu a:hover {
-  text-decoration: underline/
-    }
+  text-decoration: underline;
+}
+
+.address-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
