@@ -28,11 +28,15 @@
 .navigation-wrapper >  .left-column > .contact-hours-wrapper>.hours{
   font-family: "ubuntu condensed",sans-serif;
 }
+.navigation-wrapper > .center-column {
+  display : grid;
+  grid-template-columns : 1fr;
+  grid-gap: 42px;
+  width : 500px;
+}
 .navigation-wrapper >  .link-wrapper > .banner-image img {
-  width: 180px;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 0 15px #00d9ff;
+  display : flex;
+  justify-content: center;
 }
 .link-wrapper > .nav-link a {
   font-family: ubuntu condensed,sans-serif;
@@ -65,7 +69,12 @@
 .navigation-wrapper > .banner-image img {
   width :216px;
   height : 100%;
-
+}
+.links-wrapper: {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .roboto-<uniquifier> {
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
