@@ -38,6 +38,10 @@ icon {
 .contact-hours-wrapper>.hours{
   font-family: "ubuntu condensed",sans-serif;
 }
+banner-imag imag{
+  width: 216px;
+  height: 100%;
+}
 .address-wrapper {
   display: flex;
   align-items: center;
