@@ -34,12 +34,9 @@
   border-radius: 15px;
   box-shadow: 0 0 15px #00d9ff;
 }
-.link-wrapper{
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-top: 10px;
+.link-wrapper > .nav-link a {
+  font-family: ubuntu condensed,sans-serif;
+  color : white;
 }
 .nav-link a {
   color: #00d9ff;
@@ -62,12 +59,12 @@
   align-items: center;
   box-shadow: 0 0 10px #222;
 }
-.navigation-wrapper > .address-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-top: 10px;
+.navigation-wrapper > .right-column >.address-wrapper {
+  font-family: ubuntu condensed,sans-serif;
 }
+.navigation-wrapper > .banner-image img {
+  width :216px;
+  height : 100%;
 
 .roboto-<uniquifier> {
   font-family: "Roboto", sans-serif;
