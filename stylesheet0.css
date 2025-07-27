@@ -16,7 +16,7 @@
   align-items: center;
   margin-bottom: 10px;
 }
-icon {
+.icon {
   margin-right: 15px;
 }
 .icon i{
@@ -32,9 +32,39 @@ icon {
 .contact-hours-wrapper>.hours{
   font-family: "ubuntu condensed",sans-serif;
 }
-banner-imag imag{
-  width: 216px;
-  height: 100%;
+.banner-image img {
+  width: 180px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #00d9ff;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.nav-link a {
+  color: #00d9ff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: 0.3s;
+}
+.nav-link a:hover {
+  color: #ffffff;
+  background-color: #00d9ff;
+  border-radius: 5px;
+}
+.navigation-wrapper {
+  background-color: #11122b;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 10px #222;
 }
 .address-wrapper {
   display: flex;
