@@ -1,13 +1,12 @@
-.body {
+.navigation-wrapper {
+  background-color: #11122b;
+  padding: 20px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  color: white;
-  font-family: Arial, sans-serif;
-  margin: 8px;
-  background-color: #0d0b28;
-  height: 190px;
+  align-items: center;
+  box-shadow: 0 0 10px #222;
 }
-
 .navigation-wrapper > .left-column {
   display: flex;
   align-items: center;
