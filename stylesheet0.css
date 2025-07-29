@@ -1,74 +1,64 @@
-body{
+/* Flex row container */
+.nav-row {
   display: flex;
-  flex-direction: column;
-  font-family: "Roboto";
-  margin : 0px;
-  }
-.navigation-wrapper {
-  background-color: #11122b;
-  padding: 20px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  box-shadow: 0 0 10px #222;
-}
-.navigation-wrapper > .left-column {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-.navigation-wrapper >  .left-column >.icon {
-  margin-right: 15px;
-}
-.navigation-wrapper >  .left-column > .icon i{
-  font-size: 2em;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px 40px;
 }
 
-.navigation-wrapper >  .left-column >.contact-hours-wrapper {
+/* Left phone section */
+.left-column {
+  flex: 1;
   display: flex;
   align-items: center;
+  gap: 10px;
 }
-.navigation-wrapper >  .left-column > .contact-hours-wrapper>.hours{
-  font-family: "ubuntu condensed",sans-serif;
+
+/* Center logo and nav */
+.links-wrapper {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.navigation-wrapper > .center-column {
-  display : flex;
-  align-items : center;
-}
-.navigation-wrapper >  .links-wrapper > .banner-image img {
-  width: 180px;
+
+.banner-image img {
+  width: 120px;
+  height: auto;
   border-radius: 15px;
+  box-shadow: 0 0 10px #00d9ff;
 }
-.link-wrapper >.nav-link a {
-  color: #00d9ff;
+
+/* Nav links */
+.nav-wrapper {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.nav-link a {
+  color: white;
   text-decoration: none;
-  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   padding: 5px 10px;
-  transition: 0.3s;
-}
-.nav-link a:hover {
-  color: #ffffff;
-  background-color: #00d9ff;
   border-radius: 5px;
 }
-.navigation-wrapper > .right-column >.address-wrapper {
-  font-family: ubuntu condensed,sans-serif;
-  margin: 0px;
-}
-/* Mobile responsiveness */
-@media (max-width: 600px) {
-  .navigation-wrapper {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .left-column {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 
-  .contact-hours-wrapper {
-    margin-left: 0;
-    margin-top: 5px;
-  }
+.nav-link a:hover {
+  background-color: #00d9ff;
+  color: black;
+}
+
+/* Right address section */
+.address-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-end;
 }
