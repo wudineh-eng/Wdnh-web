@@ -73,3 +73,9 @@
   text-decoration: none;
   font-weight: 500;
 }
+@media (max-width: 768px) {
+  .phone-icon {
+    right: 10px; /* Adjust for mobile */
+    font-size: 0.9em; /* Scale icon size */
+  }
+}
