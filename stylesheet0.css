@@ -26,10 +26,8 @@ body{
 }
 
 .navigation-wrapper >  .left-column >.contact-hours-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  margin-left: 10px;
-  grid-gap: 10px;
+  display: flex;
+  align-items: center;
 }
 .navigation-wrapper >  .left-column > .contact-hours-wrapper>.hours{
   font-family: "ubuntu condensed",sans-serif;
