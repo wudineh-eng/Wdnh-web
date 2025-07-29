@@ -35,6 +35,7 @@
   grid-gap: 10px;
 }
 .navigation-wrapper >  .link-wrapper > .banner-image img {
+  width: 180px;
   display : flex;
   justify-content: center;
   height: 90px;
