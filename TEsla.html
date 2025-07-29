@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Management Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a0ca3;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f4ff, #e6f7ff);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: white;
+            padding: 25px 0;
+            box-shadow: var(--card-shadow);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-container {
+            padding: 0 25px 25px;
+            border-bottom: 1px solid var(--light-gray);
+            margin-bottom: 25px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        
+        .nav-section {
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+        
+        .nav-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 15px;
+            padding: 0 10px;
+            letter-spacing: 1px;
+        }
+        
+        .nav-menu {
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-bottom: 5px;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: var(--dark);
+            border-radius: 8px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+        }
+        
+        .nav-link i {
+            width: 24px;
+            text-align: center;
+            font-size: 18px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+        
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .welcome-container h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+        }
+        
+        .welcome-container p {
+            color: var(--gray);
+            font-size: 16px;
+        }
+        
+        .top-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-box input {
+            padding: 12px 20px 12px 45px;
+            border-radius: 30px;
+            border: 1px solid var(--light-gray);
+            width: 300px;
+            font-size: 16px;
+            background: var(--light);
+            transition: var(--transition);
+        }
+        
+        .search-box input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+        
+        .search-box i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .notification-btn {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light);
+            color: var(--dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .notification-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--warning);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        /* Welcome Section */
+        .welcome-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f7ff, #ffffff);
+            border: 1px solid rgba(67, 97, 238, 0.1);
+        }
+        
+        .welcome-section h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        .welcome-section p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 17px;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.5);
+        }
+        
+        .cta-button i {
+            margin-right: 8px;
+        }
+        
+        /* Forms Section */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        
+        .view-all {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.05), rgba(76, 201, 240, 0.05));
+        }
+        
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+        
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .card-body {
+            padding: 20px 25px;
+            color: var(--gray);
+        }
+        
+        .card-footer {
+            padding: 15px 25px;
+            background: var(--light);
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #f0f0f0;
+        }
+        
+        .btn {
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 14px;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Recent Activity */
+        .recent-activity {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            margin-top: 20px;
+        }
+        
+        .activity-list {
+            list-style: none;
+        }
+        
+        .activity-item {
+            display: flex;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-right: 20px;
+            color: white;
+            background: var(--primary);
+        }
+        
+        .activity-info {
+            flex: 1;
+        }
+        
+        .activity-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .activity-meta {
+            display: flex;
+            color: var(--gray);
+            font-size: 14px;
+            gap: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 80px;
+            }
+            
+            .logo-text, .nav-title, .nav-link span {
+                display: none;
+            }
+            
+            .logo {
+                justify-content: center;
+            }
+            
+            .nav-link {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                flex-direction: row;
+                padding: 10px;
+                overflow-x: auto;
+            }
+            
+            .logo-container {
+                padding: 10px;
+                border-bottom: none;
+                margin-bottom: 0;
+                border-right: 1px solid var(--light-gray);
+            }
+            
+            .nav-section {
+                margin-bottom: 0;
+                display: flex;
+                align-items: center;
+            }
+            
+            .nav-menu {
+                display: flex;
+                gap: 10px;
+            }
+            
+            .nav-item {
+                margin-bottom: 0;
+            }
+            
+            .top-bar {
+                flex-direction: column;
+                gap: 20px;
+                align-items: flex-start;
+            }
+            
+            .top-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .search-box input {
+                width: 100%;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 20px 15px;
+            }
+            
+            .welcome-section {
+                padding: 30px 20px;
+            }
+            
+            .card-footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="logo-text">FormFlow</div>
+                </div>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-title">Main</h3>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-inbox"></i>
+                            <span>Responses</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-star"></i>
+                            <span>Templates</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-title">Projects</h3>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Client Forms</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-store"></i>
+                            <span>E-commerce</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Education</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-medkit"></i>
+                            <span>Health</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nav-section" style="margin-top: auto;">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Help</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="welcome-container">
+                    <h1>Welcome, Wudineh!</h1>
+                    <p>Manage your forms and projects</p>
+                </div>
+                
+                <div class="top-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search forms, projects...">
+                    </div>
+                    
+                    <div class="user-menu">
+                        <div class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge">3</span>
+                        </div>
+                        <div class="user-avatar">WT</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <h2>Welcome to FormFlow</h2>
+                <p>Select a form or project to get started, or create a new form to collect responses from your audience.</p>
+                <button class="cta-button">
+                    <i class="fas fa-plus"></i> Create New Form
+                </button>
+            </section>
+            
+            <!-- Forms Section -->
+            <section class="forms-section">
+                <div class="section-header">
+                    <h2 class="section-title">Your Projects</h2>
+                    <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="cards-grid">
+                    <!-- Project Card 1 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
+                                <i class="fas fa-user-friends"></i>
+                            </div>
+                            <h3 class="card-title">Client Feedback</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Collect valuable insights from your clients to improve services and products.</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-outline">View Details</button>
+                            <button class="btn btn-primary">Open Project</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 2 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon" style="background: linear-gradient(135deg, #f72585, #b5179e);">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <h3 class="card-title">Event Registration</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Register attendees for your upcoming events and conferences with custom forms.</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-outline">View Details</button>
+                            <button class="btn btn-primary">Open Project</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 3 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon" style="background: linear-gradient(135deg, #4cc9f0, #4895ef);">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3 class="card-title">Job Applications</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Streamline your hiring process with customizable application forms.</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-outline">View Details</button>
+                            <button class="btn btn-primary">Open Project</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-header">
+                    <h2 class="section-title">Recent Forms</h2>
+                    <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="activity-info">
+                                <div class="activity-title">Customer Satisfaction Survey</div>
+                                <div class="activity-meta">
+                                    <span><i class="far fa-clock"></i> Updated 2 hours ago</span>
+                                    <span><i class="fas fa-folder"></i> Client Feedback</span>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-poll"></i>
+                            </div>
+                            <div class="activity-info">
+                                <div class="activity-title">Product Feedback Form</div>
+                                <div class="activity-meta">
+                                    <span><i class="far fa-clock"></i> Updated yesterday</span>
+                                    <span><i class="fas fa-folder"></i> Client Feedback</span>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="activity-info">
+                                <div class="activity-title">Tech Conference Registration</div>
+                                <div class="activity-meta">
+                                    <span><i class="far fa-clock"></i> Updated 3 days ago</span>
+                                    <span><i class="fas fa-folder"></i> Event Registration</span>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="activity-info">
+                                <div class="activity-title">Developer Position Application</div>
+                                <div class="activity-meta">
+                                    <span><i class="far fa-clock"></i> Updated 1 week ago</span>
+                                    <span><i class="fas fa-folder"></i> Job Applications</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Card hover effect
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+                this.style.boxShadow = '0 12px 25px rgba(0, 0, 0, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.08)';
+            });
+        });
+        
+        // Create new form button
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Form creation modal would open here. You can create a new form or project.');
+        });
+        
+        // Project buttons
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const project = this.closest('.card').querySelector('.card-title').textContent;
+                alert(`Opening project: ${project}`);
+            });
+        });
+        
+        // Simulate notifications
+        document.querySelector('.notification-btn').addEventListener('click', function() {
+            alert('You have 3 new responses to your forms!');
+        });
+    </script>
+</body>
+</html>
