@@ -5,6 +5,7 @@
   font-family: Arial, sans-serif;
   margin: 8px;
   background-color: #0d0b28;
+  height: 190px;
 }
 
 .navigation-wrapper > .left-column {
@@ -31,8 +32,7 @@
 .navigation-wrapper > .center-column {
   display : grid;
   grid-template-columns : 1fr;
-  grid-gap: 42px;
-  width : 500px;
+  grid-gap: 10px;
 }
 .navigation-wrapper >  .link-wrapper > .banner-image img {
   display : flex;
