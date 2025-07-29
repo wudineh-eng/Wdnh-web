@@ -62,3 +62,14 @@
   gap: 10px;
   justify-content: flex-end;
 }
+.icon i,
+.address-wrapper i {
+  font-size: 20px;
+  color: #00d9ff;
+}
+
+.address-wrapper a {
+  color: #00d9ff;
+  text-decoration: none;
+  font-weight: 500;
+}
