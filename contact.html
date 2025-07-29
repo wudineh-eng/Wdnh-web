@@ -94,60 +94,225 @@
 
                     
                     <form id="contactForm">
-                          
-                        <div class="form-group">
-                          action="https://formspree.io/f/mgvzyjqa"
-                                        method="POST"
-                                       >
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" placeholder="Your Name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" placeholder="Your Email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" placeholder="Your Phone" required>
-                        </div>
-                        
-                      <!-- modify this form HTML and place wherever you want your form -->
-<form
-  action="https://formspree.io/f/mgvzyjqa"
+                       <form
+  action="https://formspree.io/f/{FORM_ID}"
+  class="fs-form fs-layout__2-column"
+  target="_top"
   method="POST"
 >
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-    <label for="service">Service Needed *</label>
-                            <select id="service" required>
-                                <option value="">Select a Service</option>
-                                <option value="installation">Electrical Installation</option>
-                                <option value="repair">Repair & Maintenance</option>
-                                <option value="solar">Solar Power Systems</option>
-                                <option value="electronics">Electronics Repair</option>
-                                <option value="other">Other Service</option>
-                            </select>
-                        
-  <button type="submit">Send</button>
+  <fieldset>
+    <legend class="fs-fieldset-title">Requester Information</legend>
+    <div class="fs-field">
+      <label class="fs-label" for="requestor-name">Requestor Name</label>
+      <input
+        class="fs-input"
+        id="requestor-name"
+        name="requestor-name"
+        placeholder="Enter your full name"
+        required
+      />
+    </div>
+    <div class="fs-field">
+      <label class="fs-label" for="email-address">Email Address</label>
+      <input
+        class="fs-input"
+        id="email-address"
+        name="email-address"
+        placeholder="Enter your email address"
+        required
+      />
+    </div>
+    <div class="fs-field">
+      <label class="fs-label" for="phone-number">Phone Number</label>
+      <input
+        class="fs-input"
+        id="phone-number"
+        name="phone-number"
+        placeholder="Enter your phone number"
+        required
+      />
+    </div>
+    <div class="fs-field">
+      <label class="fs-label" for="unit-number">Location / Unit Number</label>
+      <input
+        class="fs-input"
+        id="unit-number"
+        name="unit-number"
+        placeholder="Enter your location or unit number"
+        required
+      />
+    </div>
+    <div class="fs-field">
+      <label class="fs-label" for="date-of-request">Date of Request</label>
+      <input
+        class="fs-input"
+        id="date-of-request"
+        name="date-of-request"
+        placeholder="MM/DD/YYYY"
+        required
+      />
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend class="fs-fieldset-title">Maintenance Issue Details</legend>
+    <div class="fs-field col-span-full">
+      <label class="fs-label" for="maintenance-type">
+        Type of Maintenance Issue
+      </label>
+      <select
+        class="fs-select"
+        id="maintenance-type"
+        name="maintenance-type"
+        required
+      >
+        <option value="plumbing">Plumbing</option>
+        <option value="electrical">Electrical</option>
+        <option value="hvac">HVAC</option>
+        <option value="appliance">Appliance</option>
+        <option value="general-repair">General Repair</option>
+      </select>
+    </div>
+    <div class="fs-field col-span-full">
+      <label class="fs-label" for="problem-description">
+        Description of the Problem
+      </label>
+      <textarea
+        class="fs-textarea"
+        id="problem-description"
+        name="problem-description"
+        placeholder="Describe the issue in detail"
+        required
+      ></textarea>
+    </div>
+    <div class="fs-field">
+      <label class="fs-label" for="urgency-level">Urgency Level</label>
+      <select
+        class="fs-select"
+        id="urgency-level"
+        name="urgency-level"
+        required
+      >
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+        <option value="emergency">Emergency</option>
+      </select>
+    </div>
+    <div class="fs-field">
+      <label class="fs-label" for="preferred-visit-time">
+        Preferred Time for Service Visit
+      </label>
+      <input
+        class="fs-input"
+        id="preferred-visit-time"
+        name="preferred-visit-time"
+        placeholder="MM/DD/YYYY HH:MM AM/PM"
+      />
+    </div>
+    <div class="fs-field">
+      <label class="fs-label">
+        Is This Issue Impacting Safety or Security?
+      </label>
+      <div class="fs-radio-group">
+        <div class="fs-radio-field">
+          <div class="fs-radio-wrapper">
+            <input
+              class="fs-radio"
+              id="safety-security-impact-yes"
+              name="safety-security-impact"
+              required
+              type="radio"
+              value="yes"
+            />
+          </div>
+          <div>
+            <label class="fs-label" for="safety-security-impact-yes">Yes</label>
+          </div>
+        </div>
+        <div class="fs-radio-field">
+          <div class="fs-radio-wrapper">
+            <input
+              class="fs-radio"
+              id="safety-security-impact-no"
+              name="safety-security-impact"
+              required
+              type="radio"
+              value="no"
+            />
+          </div>
+          <div>
+            <label class="fs-label" for="safety-security-impact-no">No</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fs-field">
+      <label class="fs-label">Permission to Enter Unit (if not home)?</label>
+      <div class="fs-radio-group">
+        <div class="fs-radio-field">
+          <div class="fs-radio-wrapper">
+            <input
+              class="fs-radio"
+              id="entry-permission-yes"
+              name="entry-permission"
+              required
+              type="radio"
+              value="yes"
+            />
+          </div>
+          <div>
+            <label class="fs-label" for="entry-permission-yes">Yes</label>
+          </div>
+        </div>
+        <div class="fs-radio-field">
+          <div class="fs-radio-wrapper">
+            <input
+              class="fs-radio"
+              id="entry-permission-no"
+              name="entry-permission"
+              required
+              type="radio"
+              value="no"
+            />
+          </div>
+          <div>
+            <label class="fs-label" for="entry-permission-no">No</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fs-field col-span-full">
+      <label class="fs-label" for="additional-notes">
+        Additional Notes or Special Instructions
+      </label>
+      <textarea
+        class="fs-textarea"
+        id="additional-notes"
+        name="additional-notes"
+        placeholder="Add any special instructions or comments"
+      ></textarea>
+    </div>
+    <div class="fs-checkbox-field col-span-full">
+      <div class="fs-checkbox-wrapper">
+        <input
+          class="fs-checkbox"
+          id="follow-up-request"
+          name="follow-up-request"
+          type="checkbox"
+          value="yes"
+        />
+      </div>
+      <div>
+        <label class="fs-label" for="follow-up-request">
+          Would You Like a Follow-Up After Completion?
+        </label>
+      </div>
+    </div>
+  </fieldset>
+  <div class="fs-button-group">
+    <button class="fs-button" type="submit">Submit</button>
+  </div>
 </form>
-                            
-                        
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
-                    </form>
                 </div>
             </div>
         </div>
