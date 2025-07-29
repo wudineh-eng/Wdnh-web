@@ -1,32 +1,64 @@
-.navigation-wrapper {
-  background-color: #11122b;
-  padding: 10px 20px;
-  border-radius: 10px;
-}
-
 .nav-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  padding: 20px;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-.left-column,
-.links-wrapper,
-.address-wrapper {
+/* Left: Phone Info */
+.left-column {
   display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 5px;
+  flex: 1;
+}
+
+/* Center: Logo + Links */
+.center-column {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  flex: 2;
   gap: 10px;
 }
 
-.links-wrapper {
-  flex-direction: column; /* or row if you want nav beside logo */
-  align-items: center;
-  flex: 2;
+.logo img {
+  width: 100px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #00d9ff;
 }
 
 .nav-wrapper {
   display: flex;
   gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-link a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.nav-link a:hover {
+  background-color: #00d9ff;
+  color: black;
+}
+
+/* Right: Address */
+.right-column {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  gap: 5px;
+  color: #00d9ff;
+  text-align: right;
 }
