@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TESLA WUDINEH | Electrical & Electronics Maintenance</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,17 +13,41 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary: #00a8e8;
+            --secondary: #0077b6;
+            --accent: #00d9ff;
+            --dark: #0c1c2c;
+            --darker: #0a1522;
+            --light: #e0e0e0;
+        }
+        
         body {
             background: linear-gradient(135deg, #0a1929, #1a2a39);
             font-family: 'Roboto', sans-serif;
-            color: #e0e0e0;
+            color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Decorative background elements */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 217, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 217, 255, 0.05) 0%, transparent 20%);
+            z-index: -1;
         }
         
         /* Navigation */
         .navigation-wrapper {
-            background-color: #0c1c2c;
+            background-color: var(--dark);
             padding: 20px 40px;
             display: flex;
             justify-content: space-between;
@@ -32,7 +56,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 3px solid #00a8e8;
+            border-bottom: 3px solid var(--primary);
         }
         
         .logo-container {
@@ -46,17 +70,22 @@
             flex-direction: column;
             text-transform: uppercase;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            font-weight: 800;
             line-height: 1.1;
         }
         
         .logo-main {
             font-size: 2.4rem;
             letter-spacing: 2px;
-            background: linear-gradient(90deg, #00a8e8, #00d9ff);
+            background: linear-gradient(90deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
+            text-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .logo-main:hover {
+            text-shadow: 0 0 25px rgba(0, 217, 255, 0.5);
         }
         
         .logo-sub {
@@ -67,7 +96,7 @@
         }
         
         .logo-sub span {
-            color: #00d9ff;
+            color: var(--accent);
         }
         
         .links-wrapper {
@@ -90,7 +119,15 @@
         }
         
         .nav-link a:hover {
-            color: #00d9ff;
+            color: var(--accent);
+        }
+        
+        .nav-link a.active {
+            color: var(--accent);
+        }
+        
+        .nav-link a.active::after {
+            width: 100%;
         }
         
         .nav-link a::after {
@@ -100,7 +137,7 @@
             left: 0;
             width: 0;
             height: 3px;
-            background: #00d9ff;
+            background: var(--accent);
             transition: width 0.3s ease;
         }
         
@@ -121,7 +158,7 @@
         }
         
         .contact-item i {
-            color: #00d9ff;
+            color: var(--accent);
             font-size: 1.2rem;
         }
         
@@ -142,7 +179,7 @@
         }
         
         .btn {
-            background: linear-gradient(90deg, #0077b6, #00a8e8);
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
             color: white;
             padding: 12px 25px;
             border: none;
@@ -197,8 +234,8 @@
         }
         
         .hero h1 span {
-            color: #00d9ff;
-            text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+            color: var(--accent);
+            text-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
         }
         
         .hero p {
@@ -216,8 +253,8 @@
         
         .btn-secondary {
             background: transparent;
-            border: 2px solid #00a8e8;
-            color: #00d9ff;
+            border: 2px solid var(--primary);
+            color: var(--accent);
         }
         
         /* Services Section */
@@ -248,7 +285,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, #0077b6, #00d9ff);
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
             border-radius: 2px;
         }
         
@@ -268,12 +305,19 @@
         }
         
         .service-card {
-            background: #0c1c2c;
+            background: var(--dark);
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(0, 217, 255, 0.1);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        .service-card.visible {
+            transform: translateY(0);
+            opacity: 1;
         }
         
         .service-card:hover {
@@ -288,7 +332,7 @@
             align-items: center;
             justify-content: center;
             font-size: 4rem;
-            color: #00d9ff;
+            color: var(--accent);
             background: rgba(0, 40, 70, 0.3);
             border-bottom: 2px solid rgba(0, 217, 255, 0.2);
         }
@@ -310,7 +354,7 @@
         }
         
         .service-content a {
-            color: #00d9ff;
+            color: var(--accent);
             text-decoration: none;
             font-weight: 500;
             display: inline-flex;
@@ -323,9 +367,147 @@
             gap: 12px;
         }
         
+        /* About Section */
+        .about {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #0c1c2c, #0a1a2a);
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 25px;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+        }
+        
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .about-content p {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 40px;
+            background: #0e1f30;
+        }
+        
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-info-card {
+            background: var(--dark);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-info-card h3 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 25px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .contact-detail {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .contact-detail i {
+            color: var(--accent);
+            font-size: 1.5rem;
+            min-width: 30px;
+        }
+        
+        .contact-text {
+            color: #b0b0b0;
+        }
+        
+        .contact-text h4 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .contact-form {
+            background: var(--dark);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #b0b0b0;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.2);
+        }
+        
         /* Footer */
         footer {
-            background: #0a1522;
+            background: var(--darker);
             padding: 60px 40px 30px;
             border-top: 1px solid rgba(0, 217, 255, 0.1);
         }
@@ -354,7 +536,7 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: linear-gradient(90deg, #0077b6, #00d9ff);
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
             border-radius: 2px;
         }
         
@@ -376,12 +558,12 @@
         }
         
         .footer-links a:hover {
-            color: #00d9ff;
+            color: var(--accent);
             transform: translateX(5px);
         }
         
         .footer-links a i {
-            color: #00d9ff;
+            color: var(--accent);
             font-size: 0.8rem;
         }
         
@@ -412,6 +594,10 @@
             
             .hero-btns {
                 justify-content: center;
+            }
+            
+            .about {
+                flex-direction: column;
             }
         }
         
@@ -458,6 +644,19 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            .about {
+                padding: 60px 20px;
+            }
+            
+            .contact {
+                padding: 60px 20px;
+            }
+        }
+        
+        /* Active section highlighting */
+        section {
+            scroll-margin-top: 100px;
         }
     </style>
 </head>
@@ -472,11 +671,10 @@
         </div>
         
         <div class="links-wrapper">
-            <div class="nav-link"><a href="index.html"><i class="fas fa-home"></i> Home</a></div>
-            <div class="nav-link"><a href="menu.html"><i class="fas fa-bolt"></i> Services</a></div>
-            <div class="nav-link"><a href="pages/demo.html"><i class="fas fa-tools"></i> Projects</a></div>
-            <div class="nav-link"><a href="#about.html"><i class="fas fa-users"></i> About</a></div>
-            <div class="nav-link"><a href="contact.html"><i class="fas fa-phone"></i> Contact</a></div>
+            <div class="nav-link"><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></div>
+            <div class="nav-link"><a href="#services"><i class="fas fa-bolt"></i> Services</a></div>
+            <div class="nav-link"><a href="#about"><i class="fas fa-users"></i> About</a></div>
+            <div class="nav-link"><a href="#contact"><i class="fas fa-phone"></i> Contact</a></div>
         </div>
         
         <div class="contact-info">
@@ -492,7 +690,7 @@
     </div>
     
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="hero-content">
             <h1>Professional <span>Electrical & Electronics</span> Maintenance Solutions</h1>
             <p>With over 15 years of industry experience, Tesla Wudineh provides reliable and efficient electrical services for residential, commercial, and industrial clients across Ethiopia.</p>
@@ -504,7 +702,7 @@
     </section>
     
     <!-- Services Section -->
-    <section class="services">
+    <section class="services" id="services">
         <div class="section-title">
             <h2>Our Services</h2>
             <p>Comprehensive electrical solutions tailored to meet your specific needs</p>
@@ -557,6 +755,108 @@
         </div>
     </section>
     
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Tesla Wudineh Team">
+        </div>
+        <div class="about-content">
+            <h2>About Tesla Wudineh</h2>
+            <p>Tesla Wudineh Electrical & Electronics Maintenance has been serving clients throughout Ethiopia since 2008. Founded by electrical engineer Wudineh Tsegaye, our company has grown to become a trusted name in the industry.</p>
+            <p>Our team of certified professionals brings extensive experience in both residential and commercial electrical systems. We pride ourselves on staying current with the latest technologies and industry standards to provide the best solutions for our clients.</p>
+            <p>At Tesla Wudineh, we believe in quality workmanship, transparent pricing, and exceptional customer service. Our mission is to deliver safe, efficient, and reliable electrical solutions that exceed our clients' expectations.</p>
+            <div class="hero-btns" style="margin-top: 30px;">
+                <button class="btn"><i class="fas fa-history"></i> Our History</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Get in touch with our team for all your electrical needs</p>
+        </div>
+        
+        <div class="contact-wrapper">
+            <div class="contact-info-card">
+                <h3>Contact Information</h3>
+                
+                <div class="contact-detail">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-text">
+                        <h4>Location</h4>
+                        <p>Baty, Halememaya Wereda, Ethiopia</p>
+                    </div>
+                </div>
+                
+                <div class="contact-detail">
+                    <i class="fas fa-phone"></i>
+                    <div class="contact-text">
+                        <h4>Phone</h4>
+                        <p>+251 972 321 129</p>
+                    </div>
+                </div>
+                
+                <div class="contact-detail">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-text">
+                        <h4>Email</h4>
+                        <p>info@teslawudineh.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-detail">
+                    <i class="fas fa-clock"></i>
+                    <div class="contact-text">
+                        <h4>Working Hours</h4>
+                        <p>Monday - Saturday: 8:00 AM - 6:00 PM</p>
+                        <p>Sunday: Emergency Services Only</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Your Name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Your Email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Your Phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service Needed</label>
+                        <select id="service" style="width: 100%; padding: 12px 15px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(0, 0, 0, 0.3); border-radius: 5px; color: #fff; font-size: 1rem;">
+                            <option value="">Select a Service</option>
+                            <option value="installation">Electrical Installation</option>
+                            <option value="repair">Repair & Maintenance</option>
+                            <option value="solar">Solar Power Systems</option>
+                            <option value="electronics">Electronics Repair</option>
+                            <option value="other">Other Service</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -568,11 +868,10 @@
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Services</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Projects</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                 </ul>
             </div>
             
@@ -580,8 +879,8 @@
                 <h3>Contact Us</h3>
                 <ul class="footer-links">
                     <li><a href="#"><i class="fas fa-map-marker-alt"></i> Baty, Halememaya Wereda, Ethiopia</a></li>
-                    <li><a href="#"><i class="fas fa-phone"></i> +251 972 321 129</a></li>
-                    <li><a href="#"><i class="fas fa-envelope"></i> info@teslawudineh.com</a></li>
+                    <li><a href="tel:+251972321129"><i class="fas fa-phone"></i> +251 972 321 129</a></li>
+                    <li><a href="mailto:info@teslawudineh.com"><i class="fas fa-envelope"></i> info@teslawudineh.com</a></li>
                     <li><a href="#"><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 6:00 PM</a></li>
                 </ul>
             </div>
@@ -593,15 +892,42 @@
     </footer>
     
     <script>
-        // Simple animation for service cards on scroll
+        // Navigation active state
         document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link a');
+            
+            // Set home as active initially
+            navLinks[0].classList.add('active');
+            
+            // Scroll event listener
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+            
+            // Service card animation
             const serviceCards = document.querySelectorAll('.service-card');
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.style.opacity = "1";
-                        entry.target.style.transform = "translateY(0)";
+                        entry.target.classList.add('visible');
                     }
                 });
             }, {
@@ -609,10 +935,26 @@
             });
             
             serviceCards.forEach(card => {
-                card.style.opacity = "0";
-                card.style.transform = "translateY(20px)";
-                card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
                 observer.observe(card);
+            });
+            
+            // Smooth scrolling for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active state
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                });
             });
             
             // Button hover effect enhancement
