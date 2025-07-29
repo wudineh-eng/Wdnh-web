@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Homepage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      background-color: #0d0b28;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navigation-wrapper {
+      background-color: #11122b;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .left-column,
+    .links-wrapper,
+    .address-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .left-column {
+      flex: 1;
+      flex-wrap: wrap;
+    }
+
+    .links-wrapper {
+      flex: 2;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .banner-image img {
+      width: 120px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #00d9ff;
+      transition: transform 0.3s ease;
+    }
+
+    .banner-image img:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-link a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .nav-link a:hover {
+      background-color: #00d9ff;
+      color: black;
+    }
+
+    .address-wrapper {
+      flex: 1;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .address-wrapper a {
+      color: #00d9ff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .nav-row {
+        flex-direction: column;
+        align-items: center;
+      }
+      .address-wrapper {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navigation-wrapper">
+    <div class="nav-row">
+      
+      <!-- Left column: Phone -->
+      <div class="left-column">
+        <i class="fas fa-phone"></i>
+        <div>
+          <div>+251972321129</div>
+          <div>3:25 PM - night HU techno campus</div>
+        </div>
+      </div>
+
+      <!-- Center: Logo + nav links -->
+      <div class="links-wrapper">
+        <div class="banner-image">
+          <!-- ✅ Clickable Logo (goes to your GitHub site) -->
+          <a href="https://wudineh-eng.github.io" target="_blank">
+            <img src="https://raw.githubusercontent.com/wudineh-eng/wudineh-eng.github.io/main/logo/tesla-wudineh.png" alt="Tesla Wudineh Logo" />
+          </a>
+        </div>
+        <div class="nav-wrapper">
+          <div class="nav-link"><a href="#">home</a></div>
+          <div class="nav-link"><a href="#">menu</a></div>
+          <div class="nav-link"><a href="#">contact</a></div>
+          <div class="nav-link"><a href="#">about</a></div>
+          <div class="nav-link"><a href="#">demo</a></div>
+        </div>
+      </div>
+
+      <!-- Right: Address -->
+      <div class="address-wrapper">
+        <i class="fas fa-map-marker-alt"></i>
+        <a href="https://www.google.com/maps?q=baty,haramaya,ethiopia" target="_blank">Baty, Halememaya Wereda, Ethiopia</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
