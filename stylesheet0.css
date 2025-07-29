@@ -37,6 +37,7 @@
 .navigation-wrapper >  .link-wrapper > .banner-image img {
   display : flex;
   justify-content: center;
+  height: 90px;
 }
 .link-wrapper > .nav-link a {
   font-family: ubuntu condensed,sans-serif;
