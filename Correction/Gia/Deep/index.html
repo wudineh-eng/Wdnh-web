@@ -1,1 +1,352 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Haven Restaurant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #2c3e50, #1a1a2e);
+            font-family: 'Roboto', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+        }
+        
+        .navigation-wrapper {
+            background-color: #11122b;
+            padding: 25px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Decorative elements */
+        .navigation-wrapper::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #ff9d00, #ff0058, #00d9ff);
+        }
+        
+        .nav-decoration {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            opacity: 0.1;
+            font-size: 8rem;
+            transform: rotate(-20deg);
+            color: #00d9ff;
+        }
+        
+        /* Left column styles */
+        .left-column {
+            display: flex;
+            align-items: center;
+        }
+        
+        .icon {
+            margin-right: 15px;
+        }
+        
+        .icon i {
+            font-size: 2em;
+            color: #00d9ff;
+            transition: transform 0.3s ease;
+        }
+        
+        .icon:hover i {
+            transform: scale(1.1);
+            color: #ffffff;
+        }
+        
+        .contact-hours-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 5px;
+        }
+        
+        .phone {
+            font-family: "Roboto", sans-serif;
+            font-weight: 500;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+        
+        .hours {
+            font-family: "Ubuntu Condensed", sans-serif;
+            color: #c0c0c0;
+            font-size: 0.9rem;
+        }
+        
+        /* Center column styles */
+        .center-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .banner-image img {
+            width: 220px;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .banner-image img:hover {
+            transform: scale(1.05);
+        }
+        
+        .links-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+        
+        .nav-link a {
+            font-family: "Ubuntu Condensed", sans-serif;
+            color: #00d9ff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 8px 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 5px;
+        }
+        
+        .nav-link a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ff9d00;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link a:hover {
+            color: #ffffff;
+            background-color: rgba(0, 217, 255, 0.1);
+        }
+        
+        .nav-link a:hover::after {
+            width: 100%;
+        }
+        
+        /* Right column styles */
+        .right-column {
+            display: flex;
+            align-items: center;
+        }
+        
+        .address-wrapper {
+            display: flex;
+            align-items: center;
+            font-family: "Ubuntu Condensed", sans-serif;
+        }
+        
+        .address-wrapper i {
+            font-size: 1.5em;
+            color: #00d9ff;
+            margin-right: 10px;
+        }
+        
+        .address-wrapper a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .address-wrapper a:hover {
+            color: #00d9ff;
+            text-decoration: underline;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 900px) {
+            .navigation-wrapper {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .left-column, .center-column, .right-column {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .left-column {
+                flex-direction: column;
+            }
+            
+            .icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .links-wrapper {
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .links-wrapper {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .navigation-wrapper {
+                padding: 20px 15px;
+            }
+            
+            .banner-image img {
+                width: 180px;
+            }
+        }
+        
+        /* Instructions section */
+        .instructions {
+            background: rgba(17, 18, 43, 0.8);
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .instructions h2 {
+            color: #00d9ff;
+            margin-bottom: 15px;
+            font-family: "Ubuntu Condensed", sans-serif;
+            border-bottom: 2px solid #ff9d00;
+            padding-bottom: 8px;
+        }
+        
+        .instructions ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .instructions li:before {
+            content: "•";
+            color: #ff9d00;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #ff9d00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation-wrapper">
+            <i class="fas fa-utensils nav-decoration"></i>
+            
+            <div class="left-column">
+                <div class="icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-hours-wrapper">
+                    <div class="phone">
+                        +251 972 321 129
+                    </div>
+                    <div class="hours">
+                        3:25 PM - 10:30 PM • HU Techno Campus
+                    </div> 
+                </div>
+            </div>
+            
+            <div class="center-column">
+                <div class="banner-image">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Gourmet Haven Restaurant Logo">
+                </div>
+                <div class="links-wrapper">
+                    <div class="nav-link">
+                        <a href="index.html">Home</a>
+                    </div>
+                    <div class="nav-link">
+                        <a href="menu.html">Menu</a>
+                    </div>
+                    <div class="nav-link">
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <div class="nav-link">
+                        <a href="about.html">About</a>
+                    </div>
+                    <div class="nav-link">
+                        <a href="pages/demo.html">Gallery</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <div class="address-wrapper">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <a href="https://maps.app.goo.gl/94BDRJFkzZHDfuo7A">
+                            Baty, Halememaya Wereda, Ethiopia
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h2>Navigation Bar Improvements</h2>
+            <ul>
+                <li><strong>Restructured Layout</strong>: Fixed flexbox issues and created a proper 3-column layout</li>
+                <li><strong>Visual Enhancements</strong>: Added gradient accents, hover animations, and decorative elements</li>
+                <li><strong>Responsive Design</strong>: Improved mobile responsiveness with better stacking behavior</li>
+                <li><strong>Typography</strong>: Implemented Roboto and Ubuntu Condensed fonts with better hierarchy</li>
+                <li><strong>Interactive Elements</strong>: Added hover effects for navigation links and icons</li>
+                <li><strong>Code Optimization</strong>: Removed duplicate CSS rules and fixed selector errors</li>
+                <li><strong>Added Decorative Elements</strong>: Top gradient border and utensil icon in background</li>
+                <li><strong>Fixed Issues</strong>: Corrected the <span class="code">.links-wrapper</span> colon typo and mobile layout problems</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
