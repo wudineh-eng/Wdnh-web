@@ -33,15 +33,11 @@
   grid-template-columns : 1fr;
   grid-gap: 10px;
 }
-.navigation-wrapper >  .link-wrapper > .banner-image img {
+.navigation-wrapper >  .links-wrapper > .banner-image img {
   width: 180px;
   border-radius: 15px;
 }
-.link-wrapper > .nav-link a {
-  font-family: ubuntu condensed,sans-serif;
-  color : white;
-}
-.nav-link a {
+.link-wrapper >.nav-link a {
   color: #00d9ff;
   text-decoration: none;
   font-weight: bold;
@@ -53,26 +49,8 @@
   background-color: #00d9ff;
   border-radius: 5px;
 }
-.navigation-wrapper {
-  background-color: #11122b;
-  padding: 20px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 0 10px #222;
-}
 .navigation-wrapper > .right-column >.address-wrapper {
   font-family: ubuntu condensed,sans-serif;
-}
-.navigation-wrapper > .banner-image img {
-  width :216px;
-  height : 100%;
-}
-.links-wrapper: {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 .roboto-<uniquifier> {
   font-family: "Roboto", sans-serif;
