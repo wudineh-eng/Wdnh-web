@@ -2,6 +2,7 @@ body{
   display: flex;
   flex-direction: column;
   font-family: "Roboto";
+  margin : 0px;
   }
 .navigation-wrapper {
   background-color: #11122b;
@@ -56,14 +57,7 @@ body{
 }
 .navigation-wrapper > .right-column >.address-wrapper {
   font-family: ubuntu condensed,sans-serif;
-}
-.roboto-<uniquifier> {
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+  margin: 0px;
 }
 /* Mobile responsiveness */
 @media (max-width: 600px) {
