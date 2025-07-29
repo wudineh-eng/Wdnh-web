@@ -33,9 +33,8 @@ body{
   font-family: "ubuntu condensed",sans-serif;
 }
 .navigation-wrapper > .center-column {
-  display : grid;
-  grid-template-columns : 1fr;
-  grid-gap: 10px;
+  display : flex;
+  align-items : center;
 }
 .navigation-wrapper >  .links-wrapper > .banner-image img {
   width: 180px;
